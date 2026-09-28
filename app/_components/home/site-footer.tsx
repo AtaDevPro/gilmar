@@ -1,0 +1,68 @@
+import Image from "next/image";
+
+import styles from "./home.module.css";
+
+const socials = ["x", "youtube", "telegram", "linkedin"] as const;
+
+export default function SiteFooter() {
+  return (
+    <footer className={styles.siteFooter} id="footer">
+      <div className={styles.footerMain}>
+        <div className={styles.footerBrand}>
+          <Image
+            src="/gilmar/shared/gilmar-logo-primary.svg"
+            alt="اقامتگاه بوم‌گردی گیلمار"
+            width={169}
+            height={53}
+          />
+          <p>
+            اقامتگاه بوم‌گردی گیلمار، بزرگ‌ترین مجموعه اکولوژ شمال کشور با
+            امکانات رفاهی و تفریحی متنوع، در فضایی منحصربه‌فرد و با مجوز رسمی
+            میراث فرهنگی گیلان فعالیت می‌کند.
+          </p>
+        </div>
+        <nav className={styles.footerLinks} aria-label="کاوش در گیلمار">
+          <h2>کاوش در گیلمار</h2>
+          <a href="#residence">سوئیت‌ها و اقامت</a>
+          <a href="#rules">راهنمای مهمان‌ها</a>
+          <a href="#about">درباره گیلمار</a>
+          <a href="#blogs">مجله گیلمار</a>
+        </nav>
+        <div className={styles.footerContact}>
+          <h2>راه‌های ارتباط با گیلمار</h2>
+          <p>
+            تلفن پشتیبانی: <bdi>01334775400 - 01334775411</bdi>
+            <br />
+            ایمیل: <bdi>info@gilmar-gilan.com</bdi>
+            <br />
+            موقعیت گیلمار: گیلان، جاده رشت به فومن، روستای ملاسرا، خیابان
+            کوزه‌گران، اقامتگاه گیلمار
+          </p>
+        </div>
+        <div className={styles.footerMap}>
+          <Image
+            src="/gilmar/footer/location-map.png"
+            alt="نقشه موقعیت اقامتگاه گیلمار"
+            fill
+            sizes="364px"
+          />
+        </div>
+      </div>
+      <div className={styles.footerBar}>
+        <p>© تمامی حقوق برای اقامتگاه بوم‌گردی گیلمار محفوظ است.</p>
+        <div className={styles.socials} aria-label="شبکه‌های اجتماعی گیلمار">
+          {socials.map((social) => (
+            <span key={social} aria-hidden="true">
+              <Image
+                src={`/gilmar/shared/${social}.svg`}
+                alt=""
+                width={24}
+                height={24}
+              />
+            </span>
+          ))}
+        </div>
+      </div>
+    </footer>
+  );
+}

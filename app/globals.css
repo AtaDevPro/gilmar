@@ -6,6 +6,42 @@
   --font-abar-low: var(--font-abar-low-next);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f5f8fa;
+}
+
 body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  color: #1a1a1a;
+  background: #f5f8fa;
   font-family: var(--font-abar-mid-next), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(a, summary):focus-visible {
+  outline: 3px solid #079cf1;
+  outline-offset: 4px;
+}
+
+button,
+summary {
+  font: inherit;
+}
+
+::selection {
+  color: #141416;
+  background: #b8f3c4;
 }

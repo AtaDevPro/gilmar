@@ -6,8 +6,9 @@ import Providers from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Gilmar",
-  description: "Gilmar website",
+  title: "اقامتگاه بوم‌گردی گیلمار",
+  description:
+    "اقامتی آرام و اصیل در دل طبیعت گیلان، همراه با امکانات رفاهی و تفریحی گیلمار.",
 };
 
 export default function RootLayout({
