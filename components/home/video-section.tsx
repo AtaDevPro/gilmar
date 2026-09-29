@@ -1,7 +1,8 @@
 import Image from "next/image";
 
+import GradientAction from "@/components/shared/gradient-action";
+import SectionIntro from "@/components/shared/section-intro";
 import styles from "./home.module.css";
-import { GradientAction, SectionIntro } from "./shared";
 
 export default function VideoSection() {
   return (
@@ -11,11 +12,18 @@ export default function VideoSection() {
       aria-labelledby="video-title"
     >
       <div className={styles.videoImage} aria-hidden="true">
-        <Image src="/gilmar/video/forest.jpg" alt="" fill sizes="914px" />
+        <Image
+          src="/gilmar/video/forest.jpg"
+          alt=""
+          fill
+          sizes="(max-width: 767px) calc(100vw - 32px), 914px"
+        />
+        <span className={styles.playMark}>
+          <span className={styles.playCore}>
+            <i />
+          </span>
+        </span>
       </div>
-      <span className={styles.playMark} aria-hidden="true">
-        <i />
-      </span>
       <div className={styles.videoCopy}>
         <SectionIntro
           id="video-title"
@@ -24,14 +32,16 @@ export default function VideoSection() {
           description="در این تور ویدیویی، گوشه‌ای از آرامش، طبیعت بکر و فضای گرم اقامتگاه گیلمار را از نزدیک تماشا کنید و پیش از سفر، حال‌وهوای دلنشین آن را تجربه کنید."
           align="start"
         />
-        <GradientAction href="#residence">اقامت در گیلمار</GradientAction>
+        <GradientAction href="#residence" className={styles.videoAction}>
+          اقامت در گیلمار
+        </GradientAction>
       </div>
       <Image
         className={styles.compass}
         src="/gilmar/video/compass.svg"
         alt=""
-        width={174}
-        height={177}
+        width={134}
+        height={139}
       />
     </section>
   );

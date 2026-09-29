@@ -1,0 +1,65 @@
+.page {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 32px 16px;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 35%, rgb(255 255 255 / 88%), transparent 32%),
+    linear-gradient(180deg, #d5e4ff, var(--gilmar-bg));
+}
+
+.page::before {
+  position: absolute;
+  inset: 12% 8%;
+  content: "";
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgb(54 133 251 / 24%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(54 133 251 / 24%) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse, #000, transparent 65%);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: min(560px, 100%);
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 32px;
+  text-align: center;
+  border: 6px solid rgb(255 255 255 / 72%);
+  border-radius: 28px;
+  background: rgb(252 253 253 / 88%);
+  box-shadow: 0 32px 64px rgb(0 46 37 / 12%);
+  backdrop-filter: blur(24px);
+}
+
+.code {
+  margin: 28px 0 0;
+  color: var(--gilmar-blue);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.card h1 {
+  margin: 8px 0 0;
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.description {
+  max-width: 420px;
+  margin: 20px 0 28px;
+  color: var(--gilmar-muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.homeAction {
+  width: 178px;
+}

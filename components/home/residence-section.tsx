@@ -1,13 +1,13 @@
 import Image from "next/image";
 
+import SectionIntro from "@/components/shared/section-intro";
 import styles from "./home.module.css";
-import { SectionIntro } from "./shared";
 
 const rooms = [
   "/gilmar/rooms/autumn-cabin.png",
   "/gilmar/rooms/woodland-cabin.png",
   "/gilmar/rooms/modern-cabin.png",
-  "/gilmar/rooms/forest-stream.jpg",
+  "/gilmar/rooms/forest-stream.png",
 ] as const;
 
 export default function ResidenceSection() {
@@ -32,7 +32,7 @@ export default function ResidenceSection() {
                 src={room}
                 alt={`خانه چوبی گیلمار، نمای ${index + 1}`}
                 fill
-                sizes="302px"
+                sizes="(max-width: 767px) 78vw, 302px"
               />
               <div className={styles.roomCopy}>
                 <h3>خانه‌ی چوبی گیلمار</h3>

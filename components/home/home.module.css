@@ -1,21 +1,6 @@
-:root {
-  --gilmar-bg: #f5f8fa;
-  --gilmar-surface: #fcfdfd;
-  --gilmar-ink: #1a1a1a;
-  --gilmar-muted: #4c4c4d;
-  --gilmar-line: #eef3f6;
-  --gilmar-mint: #b8f3c4;
-  --gilmar-green-soft: #ecfcef;
-  --gilmar-blue: #02adf7;
-  --gilmar-green: #26e05a;
-  --gilmar-radius: 24px;
-  --gilmar-container: 1280px;
-}
-
 .pageShell {
   min-height: 100vh;
   padding-block-end: 40px;
-  overflow: clip;
   background: var(--gilmar-bg);
 }
 
@@ -27,108 +12,9 @@
 
 .container {
   position: relative;
-  width: min(var(--gilmar-container), calc(100% - 40px));
+  width: min(var(--gilmar-container), calc(100% - 32px));
   height: 100%;
   margin-inline: auto;
-}
-
-.sectionIntro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  text-align: center;
-}
-
-.sectionIntroStart {
-  align-items: flex-start;
-  text-align: start;
-}
-
-.sectionIcon {
-  position: relative;
-  display: grid;
-  width: 92px;
-  height: 60px;
-  place-items: center;
-  isolation: isolate;
-  background: url("/gilmar/shared/section-icon-frame.svg") center / contain no-repeat;
-}
-
-.sectionIcon::after {
-  position: absolute;
-  inset: 8px 22px;
-  z-index: -1;
-  content: "";
-  border-radius: 999px;
-  background: var(--gilmar-green-soft);
-}
-
-.introCopy {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 732px;
-}
-
-.introCopy h2,
-.introCopy p {
-  margin: 0;
-}
-
-.introCopy h2 {
-  color: var(--gilmar-ink);
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -1.4px;
-}
-
-.introCopy p {
-  color: var(--gilmar-muted);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 32px;
-}
-
-.gradientAction {
-  display: inline-flex;
-  min-height: 52px;
-  align-items: center;
-  gap: 16px;
-  padding: 6px 8px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 65% 0%, rgb(255 255 255 / 24%), transparent 42%),
-    linear-gradient(115deg, var(--gilmar-blue), var(--gilmar-green));
-  box-shadow: 0 8px 24px rgb(2 173 247 / 18%);
-}
-
-.gradientAction > span:first-child {
-  padding-inline-start: 18px;
-}
-
-.actionIcon {
-  display: grid;
-  width: 40px;
-  height: 40px;
-  place-items: center;
-  color: #13bda1;
-  border-radius: 50%;
-  background: rgb(255 255 255 / 94%);
-}
-
-.actionIcon svg {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.6;
 }
 
 .pagerDots {
@@ -156,28 +42,32 @@
   height: 960px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 30%, rgb(255 255 255 / 55%), transparent 32%),
-    linear-gradient(180deg, #c5d8ff 0%, #dce8ff 64%, #f5f8fa 100%);
+    radial-gradient(circle at 50% 26%, rgb(255 255 255 / 72%), transparent 32%),
+    radial-gradient(ellipse at 52% 61%, rgb(122 112 100 / 48%), transparent 28%),
+    linear-gradient(180deg, #c6d9ff 0%, #d9e7ff 62%, #f5f8fa 100%);
 }
 
 .heroNoise {
   position: absolute;
   inset: 0;
-  opacity: 0.46;
+  opacity: 0.72;
   background: url("/gilmar/hero/hero-grain-background.png") center 76px / 1171px 392px no-repeat;
   mix-blend-mode: soft-light;
 }
 
 .siteHeader {
   position: absolute;
-  inset-block-start: 34px;
-  inset-inline: 80px;
+  inset-block-start: 40px;
+  inset-inline: auto;
+  inset-inline-start: calc(50vw - (100vw - 100%));
   z-index: 5;
   display: flex;
-  height: 80px;
+  width: min(1280px, calc(100vw - 32px));
+  height: 66px;
+  transform: translateX(50%);
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px 8px 20px;
+  padding: 1px 8px 1px 16px;
   border: 6px solid rgb(255 255 255 / 72%);
   border-radius: 999px;
   background: rgb(252 253 253 / 92%);
@@ -189,6 +79,14 @@
   display: flex;
   flex: 0 0 auto;
   align-items: center;
+  transition:
+    opacity var(--motion-fast) var(--motion-ease),
+    scale var(--motion-fast) var(--motion-ease);
+}
+
+.brand:hover {
+  opacity: 0.86;
+  scale: 1.01;
 }
 
 .brand img {
@@ -208,7 +106,7 @@
 }
 
 .nav a {
-  transition: color 160ms ease;
+  transition: color var(--motion-fast) var(--motion-ease);
 }
 
 .nav a:hover,
@@ -231,6 +129,14 @@
   background:
     radial-gradient(circle at 68% 0%, rgb(255 255 255 / 24%), transparent 45%),
     linear-gradient(115deg, #02adf7, #26e05a);
+  transition:
+    translate var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+.loginPill:hover {
+  translate: 0 -1px;
+  box-shadow: 0 10px 22px rgb(2 173 247 / 20%);
 }
 
 .userIcon,
@@ -284,14 +190,20 @@
 
 .heroMedia {
   position: absolute;
-  inset-block-end: 0;
-  inset-inline-start: 50%;
+  inset-block-start: 359px;
+  inset-inline-start: calc(50vw - (100vw - 100%));
   z-index: 2;
-  width: 1280px;
-  height: 581px;
+  width: min(1280px, calc(100% - 32px));
+  height: auto;
+  aspect-ratio: 1280 / 581;
   transform: translateX(50%);
   filter: drop-shadow(0 28px 26px rgb(0 46 37 / 22%));
-  clip-path: polygon(0 0, 100% 0, 100% 74%, 78% 74%, 78% 100%, 16% 100%, 16% 82%, 0 82%);
+  mask-image:
+    linear-gradient(#000, #000),
+    url("/gilmar/hero/hero-resort-mask.svg");
+  mask-repeat: no-repeat;
+  mask-position: top, bottom;
+  mask-size: 100% 35.284%, 100% 64.716%;
 }
 
 .heroMedia img {
@@ -304,10 +216,12 @@
   left: max(96px, calc((100vw - 1280px) / 2 + 16px));
   z-index: 4;
   display: flex;
-  height: 52px;
+  width: 166px;
+  height: 48px;
   align-items: center;
-  gap: 10px;
-  padding: 8px 14px 8px 8px;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 6px 12px 6px 7px;
   font-size: 14px;
   font-weight: 600;
   border-radius: 999px;
@@ -318,13 +232,13 @@
 .avatarStack {
   display: flex;
   direction: ltr;
-  padding-inline-start: 12px;
+  padding-inline-start: 11px;
 }
 
 .avatarStack img {
-  width: 34px;
-  height: 34px;
-  margin-inline-start: -12px;
+  width: 26px;
+  height: 26px;
+  margin-inline-start: -11px;
   border: 2px solid #fff;
   border-radius: 50%;
   object-fit: cover;
@@ -335,13 +249,13 @@
   inset-block-end: 32px;
   right: max(112px, calc((100vw - 1280px) / 2 + 32px));
   z-index: 4;
-  width: 390px;
+  width: 251px;
   margin: 0;
-  color: #fff;
+  color: var(--gilmar-ink);
   font-size: 14px;
   font-weight: 600;
   line-height: 32px;
-  text-shadow: 0 2px 12px rgb(0 0 0 / 60%);
+  text-align: center;
 }
 
 .aboutSection {
@@ -350,7 +264,7 @@
 
 .aboutLayout {
   display: grid;
-  grid-template-columns: 620px 620px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
 }
 
@@ -398,6 +312,9 @@
 
 .aboutCollage {
   position: relative;
+  width: 582px;
+  height: 649px;
+  margin-inline: auto;
   direction: ltr;
 }
 
@@ -414,32 +331,47 @@
   overflow: hidden;
   border-radius: 22px;
   filter: drop-shadow(0 24px 24px rgb(0 46 37 / 18%));
+  transition:
+    translate var(--motion-card) var(--motion-ease),
+    scale var(--motion-card) var(--motion-ease),
+    filter var(--motion-card) var(--motion-ease);
 }
 
 .aboutPhoto img {
   object-fit: contain;
+  transition: scale var(--motion-card) var(--motion-ease);
+}
+
+.aboutPhoto:hover {
+  translate: 0 -6px;
+  scale: 1.01;
+  filter: drop-shadow(0 30px 30px rgb(0 46 37 / 23%));
+}
+
+.aboutPhoto:hover img {
+  scale: 1.025;
 }
 
 .aboutPhotoMain {
-  top: 0;
-  left: 92px;
-  width: 452px;
-  height: 455px;
+  top: 7px;
+  left: 134px;
+  width: 352px;
+  height: 352px;
 }
 
 .aboutPhotoOne {
-  top: 248px;
-  left: 0;
-  width: 357px;
-  height: 401px;
+  top: 256px;
+  left: 38px;
+  width: 256px;
+  height: 298px;
   transform: rotate(-1deg);
 }
 
 .aboutPhotoTwo {
-  top: 274px;
-  left: 280px;
-  width: 357px;
-  height: 401px;
+  top: 289px;
+  left: 326px;
+  width: 256px;
+  height: 360px;
   transform: rotate(1deg);
 }
 
@@ -458,6 +390,16 @@
   border-radius: 999px;
   background: #fff;
   box-shadow: 0 16px 32px rgb(15 15 15 / 12%);
+  transition:
+    translate var(--motion-fast) var(--motion-ease),
+    scale var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+.aboutBadge:hover {
+  translate: 0 -3px;
+  scale: 1.01;
+  box-shadow: 0 20px 38px rgb(15 15 15 / 16%);
 }
 
 .aboutBadge i {
@@ -470,13 +412,20 @@
 }
 
 .aboutBadgeResort {
-  top: 137px;
-  left: -5px;
+  top: 135px;
+  left: 0;
+  width: 244px;
 }
 
 .aboutBadgeNorth {
-  top: 421px;
-  left: 224px;
+  top: 417px;
+  left: 230px;
+  width: 249px;
+}
+
+.aboutAction,
+.videoAction {
+  width: 164px;
 }
 
 .rulesSection {
@@ -502,6 +451,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: translate var(--motion-card) var(--motion-ease);
+}
+
+.ruleItem:hover {
+  translate: 0 -8px;
 }
 
 .ruleCard {
@@ -512,6 +466,14 @@
   border-radius: 24px;
   background: #fcfdfd;
   box-shadow: 0 24px 32px rgb(0 46 37 / 20%);
+  transition:
+    scale var(--motion-card) var(--motion-ease),
+    box-shadow var(--motion-card) var(--motion-ease);
+}
+
+.ruleItem:hover .ruleCard {
+  scale: 1.02;
+  box-shadow: 0 30px 38px rgb(0 46 37 / 24%);
 }
 
 .ruleCard img {
@@ -520,15 +482,15 @@
 }
 
 .ruleCard1 {
-  transform: rotate(14deg);
+  transform: rotate(-14deg);
 }
 
 .ruleCard2 {
-  transform: rotate(-13deg);
+  transform: rotate(13deg);
 }
 
 .ruleCard3 {
-  transform: rotate(-14deg);
+  transform: rotate(14deg);
 }
 
 .ruleItem h3,
@@ -552,12 +514,17 @@
 
 .rulesConnector {
   position: absolute;
-  inset-block-start: 302px;
-  inset-inline: 270px;
-  height: 100px;
-  border-block-start: 3px dashed #fff;
-  border-radius: 50%;
-  transform: rotate(-1deg);
+  inset-block-start: 266px;
+  inset-inline-start: 50%;
+  z-index: 1;
+  width: 836.9px;
+  height: 133.7px;
+  transform: translateX(50%);
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 4 12;
+  stroke-linecap: round;
+  stroke-width: 3;
 }
 
 .rulesSection::before {
@@ -570,7 +537,10 @@
     linear-gradient(rgb(54 133 251 / 28%) 1px, transparent 1px),
     linear-gradient(90deg, rgb(54 133 251 / 28%) 1px, transparent 1px);
   background-size: 1080px 460px, 40px 40px, 40px 40px;
-  mask-image: linear-gradient(90deg, #000 0 22%, transparent 42% 58%, #000 78%);
+  mask-image:
+    radial-gradient(circle at 10% 52%, #000 0 8%, transparent 18%),
+    radial-gradient(circle at 50% 72%, #000 0 7%, transparent 16%),
+    radial-gradient(circle at 90% 52%, #000 0 8%, transparent 18%);
 }
 
 .rulesSection,
@@ -580,12 +550,12 @@
 
 .servicesSection {
   height: 346px;
-  overflow: visible;
+  overflow: clip;
 }
 
 .servicesLayout {
   display: grid;
-  grid-template-columns: 620px 620px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
 }
 
@@ -596,34 +566,49 @@
   align-items: center;
 }
 
-.servicesRail {
+.servicesViewport {
   position: absolute;
   top: 0;
-  left: -185px;
-  display: flex;
+  left: -214px;
+  width: 844px;
   height: 346px;
-  align-items: stretch;
+}
+
+.servicesRail {
+  display: flex;
+  width: 844px;
+  height: 346px;
+  align-items: center;
   gap: 24px;
 }
 
 .serviceCard {
   position: relative;
-  width: 292px;
-  height: 346px;
-  flex: 0 0 292px;
+  width: 254px;
+  height: 304px;
+  flex: 0 0 254px;
   overflow: hidden;
+  padding: 0;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+  border: 0;
   border-radius: 20px;
+  background: transparent;
   box-shadow: 0 24px 32px rgb(0 46 37 / 20%);
+  transition:
+    width var(--motion-card) var(--motion-ease),
+    height var(--motion-card) var(--motion-ease),
+    flex-basis var(--motion-card) var(--motion-ease),
+    translate var(--motion-card) var(--motion-ease),
+    box-shadow var(--motion-card) var(--motion-ease);
 }
 
-.serviceCard:first-child {
-  width: 234px;
-  flex-basis: 234px;
-}
-
-.serviceCard:last-of-type {
-  width: 256px;
-  flex-basis: 256px;
+.serviceCardActive {
+  width: 288px;
+  height: 346px;
+  flex-basis: 288px;
+  box-shadow: 0 30px 40px rgb(0 46 37 / 24%);
 }
 
 .serviceCard::after {
@@ -635,6 +620,16 @@
 
 .serviceCard img {
   object-fit: cover;
+  transition: scale var(--motion-card) var(--motion-ease);
+}
+
+.serviceCard:hover {
+  translate: 0 -4px;
+}
+
+.serviceCard:hover img,
+.serviceCardActive img {
+  scale: 1.035;
 }
 
 .serviceCard span {
@@ -651,25 +646,27 @@
 
 .serviceArrow {
   position: absolute;
-  inset-block-start: 154px;
-  inset-inline-end: 14px;
+  top: 149px;
+  right: -8px;
   z-index: 3;
   display: grid;
   width: 48px;
   height: 48px;
+  padding: 0;
   place-items: center;
-  color: #fff;
+  cursor: pointer;
   border: 6px solid #fff;
   border-radius: 50%;
-  background: linear-gradient(135deg, #02adf7, #26e05a);
+  background: #fff;
+  box-shadow: 0 8px 20px rgb(0 46 37 / 16%);
+  transition:
+    translate var(--motion-fast) var(--motion-ease),
+    scale var(--motion-fast) var(--motion-ease);
 }
 
-.serviceArrow svg {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.7;
+.serviceArrow:hover {
+  translate: 2px 0;
+  scale: 1.03;
 }
 
 .residenceSection {
@@ -711,6 +708,9 @@
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 24px 32px rgb(0 46 37 / 18%);
+  transition:
+    translate var(--motion-card) var(--motion-ease),
+    box-shadow var(--motion-card) var(--motion-ease);
 }
 
 .roomCard::after {
@@ -722,6 +722,32 @@
 
 .roomCard img {
   object-fit: cover;
+  transition: scale var(--motion-card) var(--motion-ease);
+}
+
+.roomCard:nth-child(1) img {
+  object-position: 50% 50%;
+}
+
+.roomCard:nth-child(2) img {
+  object-position: 52% 52%;
+}
+
+.roomCard:nth-child(3) img {
+  object-position: 48% 50%;
+}
+
+.roomCard:nth-child(4) img {
+  object-position: 50% 45%;
+}
+
+.roomCard:hover {
+  translate: 0 -6px;
+  box-shadow: 0 30px 38px rgb(0 46 37 / 22%);
+}
+
+.roomCard:hover img {
+  scale: 1.035;
 }
 
 .roomCopy {
@@ -755,7 +781,14 @@
   width: min(1360px, calc(100% - 40px));
   height: 690px;
   margin-inline: auto;
-  overflow: hidden;
+  border-radius: 20px;
+  background: #eef3f6;
+}
+
+.videoSection::before {
+  position: absolute;
+  inset: 0;
+  content: "";
   border-radius: 20px;
   background: #eef3f6;
 }
@@ -781,6 +814,7 @@
   z-index: 1;
   width: 914px;
   height: 690px;
+  overflow: hidden;
   mask: url("/gilmar/video/europe-mask.svg") center / 100% 100% no-repeat;
 }
 
@@ -790,7 +824,7 @@
 
 .playMark {
   position: absolute;
-  inset-block-start: 286px;
+  top: 286px;
   left: 197px;
   z-index: 3;
   display: grid;
@@ -800,23 +834,40 @@
   border-radius: 50%;
   background: rgb(255 255 255 / 36%);
   backdrop-filter: blur(8px);
+  animation: play-ring-breathe 3.8s var(--motion-ease) infinite;
 }
 
-.playMark::after {
-  position: absolute;
-  inset: 22px;
-  content: "";
+.playCore {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 78.125px;
+  height: 78.125px;
+  place-items: center;
   border-radius: 50%;
   background: #fff;
 }
 
-.playMark i {
-  z-index: 2;
+.playCore i {
   width: 0;
   height: 0;
   margin-inline-start: 7px;
-  border-block: 12px solid transparent;
-  border-inline-start: 20px solid #13bda1;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 23px solid #13bda1;
+}
+
+@keyframes play-ring-breathe {
+  0%,
+  100% {
+    opacity: 0.88;
+    scale: 1;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.025;
+  }
 }
 
 .videoCopy {
@@ -837,8 +888,8 @@
 
 .compass {
   position: absolute;
-  inset-block-end: -42px;
-  left: 688px;
+  top: 630px;
+  left: 653.27px;
   z-index: 3;
 }
 
@@ -852,21 +903,36 @@
   z-index: 5;
 }
 
+.testimonialsStage {
+  position: absolute;
+  inset-block-start: 94px;
+  inset-inline-start: 50%;
+  width: min(1169px, calc(100% - 32px));
+  height: auto;
+  aspect-ratio: 1169 / 604;
+  transform: translateX(50%);
+}
+
+.testimonialsArtboard {
+  position: absolute;
+  inset: 0;
+}
+
 .worldMap {
   position: absolute;
-  inset-block-start: 180px;
-  inset-inline-start: 50%;
-  width: 1169px;
-  height: 518px;
-  transform: translateX(50%);
+  top: 14.238%;
+  left: 0;
+  width: 100%;
+  height: 85.762%;
 }
 
 .avatarMarker {
   position: absolute;
   z-index: 3;
   overflow: hidden;
-  width: 58px;
-  height: 58px;
+  width: 5.133%;
+  height: auto;
+  aspect-ratio: 1;
   border: 4px solid #fff;
   border-radius: 50%;
   box-shadow: 0 8px 24px rgb(0 46 37 / 18%);
@@ -876,24 +942,23 @@
   object-fit: cover;
 }
 
-.markerOne { top: 229px; left: 258px; }
-.markerTwo { top: 290px; left: 882px; }
-.markerThree { top: 375px; left: 1088px; }
-.markerFour { top: 395px; left: 156px; }
-.markerFive { top: 510px; left: 1070px; }
-.markerSix { top: 548px; left: 292px; }
-.markerSeven { top: 349px; left: 283px; width: 44px; height: 44px; }
-.markerEight { top: 204px; left: 594px; width: 86px; height: 86px; }
+.markerOne { top: 21.026%; left: 45.723%; width: 8.554%; }
+.markerTwo { top: 33.775%; left: 75.706%; }
+.markerThree { top: 72.848%; left: 80.667%; }
+.markerFour { top: 79.967%; left: 19.761%; }
+.markerFive { top: 21.192%; left: 16.253%; }
+.markerSix { top: 57.616%; left: 8.383%; }
+.markerSeven { top: 47.682%; left: 87.767%; width: 4.277%; }
+.markerEight { top: 44.536%; left: 18.648%; width: 4.277%; }
 
 .testimonialCard {
   position: absolute;
-  inset-block-start: 338px;
-  inset-inline-start: 50%;
+  top: 40.894%;
+  left: 28.614%;
   z-index: 4;
   display: flex;
   width: 500px;
   min-height: 264px;
-  transform: translateX(50%);
   flex-direction: column;
   align-items: center;
   padding: 24px 30px 16px;
@@ -949,7 +1014,7 @@
 
 .packagesLayout {
   display: grid;
-  grid-template-columns: 620px 602px;
+  grid-template-columns: minmax(0, 620px) minmax(0, 602px);
   gap: 58px;
 }
 
@@ -1008,8 +1073,9 @@
 }
 
 .packageFeature {
+  position: relative;
   display: flex;
-  height: 132px;
+  height: 116px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -1021,12 +1087,17 @@
 }
 
 .packageFeature img {
-  width: 72px;
-  height: 72px;
+  position: absolute;
+  inset-block-start: 0;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 
 .packageFeature span {
+  position: absolute;
+  inset-block-end: 7px;
+  z-index: 1;
   font-size: 14px;
   font-weight: 600;
   line-height: 28px;
@@ -1046,10 +1117,14 @@
   font-weight: 800;
 }
 
+.packageAction {
+  width: 178px;
+}
+
 .packageImage {
   position: relative;
   overflow: hidden;
-  width: 602px;
+  width: min(602px, 100%);
   height: 815px;
   filter: drop-shadow(0 24px 32px rgb(0 46 37 / 18%));
   mask: url("/gilmar/packages/image-mask.svg") center / 100% 100% no-repeat;
@@ -1060,10 +1135,21 @@
   inset: 0;
   content: "";
   background: linear-gradient(180deg, rgb(0 0 0 / 10%), rgb(0 0 0 / 48%));
+  pointer-events: none;
 }
 
-.packageImage img {
+.packageLayer {
   object-fit: cover;
+  opacity: 0;
+  scale: 1.03;
+  transition:
+    opacity var(--motion-card) var(--motion-ease),
+    scale var(--motion-card) var(--motion-ease);
+}
+
+.packageLayerActive {
+  opacity: 1;
+  scale: 1;
 }
 
 .packageImage p {
@@ -1090,17 +1176,29 @@
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 10px;
   direction: ltr;
 }
 
-.packageImagePager span {
-  height: 6px;
-  border-radius: 999px;
-  background: rgb(255 255 255 / 55%);
+.packageImagePager button {
+  position: relative;
+  height: 28px;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
 }
 
-.packageImagePager span:first-child {
+.packageImagePager button::before {
+  position: absolute;
+  inset: 11px 0;
+  content: "";
+  border-radius: 999px;
+  background: rgb(255 255 255 / 55%);
+  transition: background-color var(--motion-fast) var(--motion-ease);
+}
+
+.packageImagePager .packagePagerActive::before {
   background: #fff;
 }
 
@@ -1142,6 +1240,9 @@
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 24px 32px rgb(0 46 37 / 18%);
+  transition:
+    translate var(--motion-card) var(--motion-ease),
+    box-shadow var(--motion-card) var(--motion-ease);
 }
 
 .blogCard::after {
@@ -1153,6 +1254,16 @@
 
 .blogCard img {
   object-fit: cover;
+  transition: scale var(--motion-card) var(--motion-ease);
+}
+
+.blogCard:hover {
+  translate: 0 -6px;
+  box-shadow: 0 30px 40px rgb(0 46 37 / 22%);
+}
+
+.blogCard:hover img {
+  scale: 1.035;
 }
 
 .blogCard > div {
@@ -1190,7 +1301,7 @@
 
 .faqLayout {
   display: grid;
-  grid-template-columns: 620px 620px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
 }
 
@@ -1200,16 +1311,6 @@
   flex-direction: column;
   align-items: flex-start;
   isolation: isolate;
-}
-
-.faqVisual::before {
-  position: absolute;
-  inset: 60px -70px -80px;
-  z-index: -1;
-  content: "";
-  border-radius: 50%;
-  background: radial-gradient(circle at 52% 46%, #d7eadf 0%, #b8d0cb 36%, #778fa9 68%, transparent 72%);
-  filter: blur(14px);
 }
 
 .faqVisual::after {
@@ -1249,6 +1350,27 @@
   box-shadow: 0 20px 24px rgb(0 46 37 / 12%);
 }
 
+@supports (interpolate-size: allow-keywords) {
+  .faqList {
+    interpolate-size: allow-keywords;
+  }
+
+  .faqItem::details-content {
+    height: 0;
+    overflow: clip;
+    opacity: 0;
+    transition:
+      height var(--motion-card) var(--motion-ease),
+      opacity var(--motion-fast) var(--motion-ease),
+      content-visibility var(--motion-card) allow-discrete;
+  }
+
+  .faqItem[open]::details-content {
+    height: auto;
+    opacity: 1;
+  }
+}
+
 .faqItem summary {
   position: relative;
   display: flex;
@@ -1265,6 +1387,12 @@
 
 .faqItem summary::-webkit-details-marker {
   display: none;
+}
+
+.faqItem summary:focus-visible {
+  outline: 0;
+  border-radius: 22px;
+  box-shadow: inset 0 0 0 3px #079cf1;
 }
 
 .faqItem summary::before {
@@ -1296,15 +1424,19 @@
 }
 
 .siteFooter {
-  width: min(1280px, calc(100% - 40px));
+  position: relative;
+  width: 100%;
   height: 352px;
-  margin: 140px auto 0;
+  margin-block-start: 140px;
+  background: radial-gradient(760px 520px at 100% 100%, rgb(153 189 255 / 58%), transparent 68%);
 }
 
 .footerMain {
+  position: relative;
   display: grid;
-  width: 100%;
+  width: min(1280px, calc(100% - 32px));
   height: 276px;
+  margin-inline: auto;
   grid-template-columns: 1.45fr 0.8fr 1.45fr 364px;
   overflow: hidden;
   border: 6px solid rgb(255 255 255 / 62%);
@@ -1354,20 +1486,28 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 32px;
+  transition: color var(--motion-fast) var(--motion-ease);
+}
+
+.footerLinks a:hover,
+.footerContact a:hover {
+  color: var(--gilmar-blue);
 }
 
 .footerContact {
   padding-inline: 20px;
 }
 
-.footerContact bdi {
+.footerContact a {
   direction: ltr;
   unicode-bidi: isolate;
+  transition: color var(--motion-fast) var(--motion-ease);
 }
 
 .footerMap {
   position: relative;
   overflow: hidden;
+  mask: url("/gilmar/video/europe-mask.svg") center / 100% 100% no-repeat;
 }
 
 .footerMap img {
@@ -1375,11 +1515,13 @@
 }
 
 .footerBar {
+  position: relative;
   display: flex;
+  width: min(1280px, calc(100% - 32px));
   height: 56px;
   align-items: center;
   justify-content: space-between;
-  margin-block-start: 20px;
+  margin: 20px auto 0;
   padding: 8px 24px;
   border: 1px solid #eef3f6;
   border-radius: 999px;
@@ -1405,11 +1547,24 @@
   width: 40px;
   height: 40px;
   place-items: center;
+  cursor: default;
   border-radius: 50%;
   background:
     radial-gradient(circle at 65% 0%, rgb(255 255 255 / 24%), transparent 42%),
     linear-gradient(135deg, #02adf7, #26e05a);
   box-shadow: 0 8px 20px rgb(0 46 37 / 12%);
+  transition:
+    translate var(--motion-fast) var(--motion-ease),
+    scale var(--motion-fast) var(--motion-ease),
+    opacity var(--motion-fast) var(--motion-ease),
+    filter var(--motion-fast) var(--motion-ease);
+}
+
+.socials span:hover {
+  translate: 0 -2px;
+  scale: 1.02;
+  opacity: 0.96;
+  filter: drop-shadow(0 4px 8px rgb(2 173 247 / 20%));
 }
 
 @media (max-width: 1279px) {
@@ -1422,7 +1577,8 @@
   }
 
   .siteHeader {
-    inset-inline: 24px;
+    inset-inline: auto;
+    inset-inline-start: calc(50vw - (100vw - 100%));
   }
 
   .nav {
@@ -1449,8 +1605,7 @@
   }
 
   .aboutCollage {
-    transform: scale(0.82);
-    transform-origin: left center;
+    transform: none;
   }
 
   .roomsGrid,
@@ -1491,6 +1646,7 @@
 
   .brand img {
     width: 135px;
+    height: auto;
   }
 
   .nav {
@@ -1740,8 +1896,6 @@
 
   .aboutCollage {
     height: 480px;
-    transform: scale(0.62);
-    transform-origin: top left;
   }
 
   .rulesSection {
@@ -1906,5 +2060,516 @@
     justify-content: center;
     gap: 8px;
     text-align: center;
+  }
+}
+
+/* Responsive engineering pass: desktop remains the authored source of truth. */
+@media (max-width: 1295px) {
+  .aboutCopy::before,
+  .servicesCopy::before {
+    inset: 50% 0 auto;
+    width: 100%;
+  }
+
+  .packagesCopy::before {
+    inset-block-start: 0;
+    inset-inline: 0;
+  }
+
+  .faqVisual::after {
+    inset-inline: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  .container,
+  .footerMain,
+  .footerBar {
+    width: min(100% - 32px, var(--gilmar-container));
+  }
+
+  .aboutCollage {
+    max-width: 100%;
+    transform: none;
+  }
+
+  .roomsGrid,
+  .blogsGrid {
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+  }
+
+  .roomCard,
+  .blogCard {
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .aboutCollage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 582 / 649;
+  }
+
+  .aboutPhotoMain {
+    top: 1.079%;
+    left: 23.024%;
+    width: 60.481%;
+    height: 54.237%;
+  }
+
+  .aboutPhotoOne {
+    top: 39.445%;
+    left: 6.529%;
+    width: 43.986%;
+    height: 45.917%;
+  }
+
+  .aboutPhotoTwo {
+    top: 44.53%;
+    left: 56.014%;
+    width: 43.986%;
+    height: 55.47%;
+  }
+
+  .aboutBadgeResort {
+    top: 20.801%;
+    width: 41.924%;
+  }
+
+  .aboutBadgeNorth {
+    top: 64.253%;
+    left: 39.519%;
+    width: 42.784%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .rulesConnector {
+    right: auto;
+    left: 50%;
+    width: min(836.9px, calc(100% - 32px));
+    transform: translateX(-50%);
+  }
+
+  .servicesViewport {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 346px;
+    overflow: clip;
+  }
+
+  .servicesRail {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    max-width: none;
+    overflow: visible;
+    transform: translateX(-50%);
+  }
+
+  .testimonialsStage {
+    inset-inline-start: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1169 / 604;
+    transform: none;
+  }
+
+  .worldMap {
+    top: 14.238%;
+    width: 100%;
+    height: 85.762%;
+  }
+
+  .footerMain,
+  .footerBar {
+    width: min(100% - 32px, var(--gilmar-container));
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    gap: 72px;
+  }
+
+  .heroSection {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 16px 24px;
+  }
+
+  .heroNoise {
+    background-position: center 90px;
+    background-size: 860px auto;
+  }
+
+  .siteHeader {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 126px;
+    transform: none;
+    flex: 0 0 auto;
+    border-width: 4px;
+  }
+
+  .heroCopy {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-block-start: 42px;
+    transform: none;
+  }
+
+  .heroMedia {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    margin-block-start: 28px;
+    transform: none;
+    aspect-ratio: 1280 / 581;
+    mask-position: top, bottom;
+    mask-size: 100% 35.284%, 100% 64.716%;
+  }
+
+  .socialProof {
+    position: relative;
+    inset: auto;
+    align-self: flex-start;
+    margin-block-start: 18px;
+    transform: none;
+  }
+
+  .heroCaption {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: min(251px, 100%);
+    margin: 14px auto 0;
+  }
+
+  .aboutSection,
+  .rulesSection,
+  .servicesSection,
+  .residenceSection,
+  .videoSection,
+  .testimonialsSection,
+  .packagesSection,
+  .blogsSection,
+  .faqSection,
+  .siteFooter {
+    height: auto;
+    min-height: 0;
+  }
+
+  .aboutLayout,
+  .servicesLayout,
+  .faqLayout,
+  .packagesLayout {
+    gap: 40px;
+  }
+
+  .aboutCopy {
+    min-height: 0;
+    transform: none;
+  }
+
+  .aboutCollage {
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    overflow: visible;
+  }
+
+  .aboutPhoto {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+    transform: none;
+  }
+
+  .aboutPhotoMain {
+    grid-column: 1 / -1;
+    aspect-ratio: 1;
+  }
+
+  .aboutPhotoOne {
+    aspect-ratio: 256 / 298;
+  }
+
+  .aboutPhotoTwo {
+    aspect-ratio: 256 / 360;
+  }
+
+  .aboutBadge {
+    height: 58px;
+    gap: 8px;
+    padding: 8px 8px 8px 14px;
+    font-size: 12px;
+  }
+
+  .aboutBadge i {
+    width: 40px;
+    height: 40px;
+  }
+
+  .aboutBadgeResort {
+    top: 18%;
+    left: 0;
+    width: min(244px, 72%);
+  }
+
+  .aboutBadgeNorth {
+    top: 68%;
+    right: 0;
+    left: auto;
+    width: min(249px, 74%);
+  }
+
+  .rulesIntro,
+  .residenceIntro {
+    transform: none;
+  }
+
+  .rulesGrid {
+    position: relative;
+    inset: auto;
+    display: flex;
+    margin-block-start: 56px;
+    padding: 0;
+    flex-direction: column;
+    gap: 40px;
+    overflow: visible;
+  }
+
+  .ruleItem {
+    min-width: 0;
+  }
+
+  .rulesConnector {
+    display: none;
+  }
+
+  .servicesCopy {
+    min-height: 0;
+    padding-block-end: 8px;
+  }
+
+  .servicesViewport {
+    width: calc(100% + 32px);
+    height: 330px;
+    margin-inline: -16px;
+  }
+
+  .servicesRail {
+    width: max-content;
+    height: 330px;
+  }
+
+  .serviceCard {
+    width: 72vw;
+    height: 286px;
+    flex-basis: 72vw;
+  }
+
+  .serviceCardActive {
+    width: 78vw;
+    height: 330px;
+    flex-basis: 78vw;
+  }
+
+  .serviceArrow {
+    top: 141px;
+    right: 10px;
+  }
+
+  .roomsGrid,
+  .blogsGrid {
+    position: relative;
+    inset: auto;
+    display: flex;
+    width: calc(100% + 16px);
+    margin-block-start: 48px;
+    padding-block-end: 24px;
+    overflow-x: auto;
+    gap: 16px;
+    scrollbar-width: none;
+  }
+
+  .roomCard {
+    width: min(78vw, 302px);
+    height: min(78vw, 302px);
+    flex: 0 0 min(78vw, 302px);
+  }
+
+  .videoSection {
+    display: flex;
+    width: calc(100% - 32px);
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .videoCopy {
+    position: relative;
+    inset: auto;
+    order: 1;
+    width: 100%;
+    padding: 40px 24px 32px;
+  }
+
+  .videoImage {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 914 / 690;
+    border-radius: 0 0 20px 20px;
+    mask: url("/gilmar/video/europe-mask.svg") center / 100% 100% no-repeat;
+  }
+
+  .playMark {
+    top: 41.45%;
+    left: 21.55%;
+    width: clamp(86px, 24vw, 120px);
+    height: clamp(86px, 24vw, 120px);
+  }
+
+  .playCore {
+    width: 65.1%;
+    height: 65.1%;
+  }
+
+  .playCore i {
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 18px;
+  }
+
+  .compass {
+    top: auto;
+    bottom: -70px;
+    left: 50%;
+    display: block;
+    width: 110px;
+    height: 114px;
+    transform: translateX(-50%);
+  }
+
+  .testimonialsStage {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    margin-block-start: 24px;
+    aspect-ratio: auto;
+    transform: none;
+  }
+
+  .testimonialsArtboard {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1169 / 604;
+  }
+
+  .worldMap {
+    top: 14.238%;
+    height: 85.762%;
+  }
+
+  .avatarMarker {
+    display: block;
+    border-width: 2px;
+  }
+
+  .testimonialCard {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 264px;
+    margin-block-start: 16px;
+  }
+
+  .packagesCopy {
+    padding-block-start: 0;
+  }
+
+  .packageFeatures {
+    grid-template-columns: repeat(2, minmax(0, 116px));
+    justify-content: space-between;
+  }
+
+  .packageActions {
+    gap: 20px;
+  }
+
+  .packageImage {
+    width: 100%;
+    height: auto;
+    margin-block-start: 8px;
+    aspect-ratio: 602 / 815;
+  }
+
+  .blogCard {
+    width: min(84vw, 408px);
+    height: min(99vw, 482px);
+    flex: 0 0 min(84vw, 408px);
+  }
+
+  .faqVisual {
+    min-height: 0;
+  }
+
+  .faqVisual > img {
+    position: relative;
+    inset: auto;
+    align-self: center;
+    width: min(420px, 100%);
+    height: auto;
+    margin-block-start: 24px;
+    transform: none;
+  }
+
+  .faqList {
+    order: 2;
+  }
+
+  .siteFooter {
+    margin-block-start: 72px;
+  }
+
+  .footerMain {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .footerBrand,
+  .footerLinks,
+  .footerContact {
+    padding: 28px 24px;
+  }
+
+  .footerMap {
+    grid-column: auto;
+    min-height: 240px;
+  }
+
+  .footerBar {
+    height: auto;
+    min-height: 108px;
   }
 }

@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
+import GradientAction from "@/components/shared/gradient-action";
 import styles from "./home.module.css";
-import { GradientAction } from "./shared";
 
 const navItems = [
   ["خانه", "#home"],
@@ -12,19 +13,19 @@ const navItems = [
   ["تماس با ما", "#footer"],
 ] as const;
 
-const avatars = [1, 2, 3, 4, 5] as const;
+const avatars = [3, 2, 1] as const;
 
 function SiteHeader() {
   return (
     <header className={styles.siteHeader}>
-      <a className={styles.brand} href="#home" aria-label="گیلمار، خانه">
+      <Link className={styles.brand} href="/" aria-label="گیلمار، خانه">
         <Image
           src="/gilmar/shared/gilmar-logo-primary.svg"
           alt="اقامتگاه بوم‌گردی گیلمار"
           width={169}
           height={53}
         />
-      </a>
+      </Link>
       <nav className={styles.nav} aria-label="ناوبری اصلی">
         {navItems.map(([label, href]) => (
           <a href={href} key={href}>
@@ -32,7 +33,7 @@ function SiteHeader() {
           </a>
         ))}
       </nav>
-      <span className={styles.loginPill}>
+      <Link className={styles.loginPill} href="/auth">
         <span className={styles.userIcon} aria-hidden="true">
           <svg viewBox="0 0 24 24" width="22" height="22">
             <circle cx="12" cy="12" r="9" />
@@ -41,7 +42,7 @@ function SiteHeader() {
           </svg>
         </span>
         ورود یا ثبت‌نام
-      </span>
+      </Link>
     </header>
   );
 }
@@ -58,7 +59,7 @@ export default function HeroSection() {
           امکانات رفاهی و تفریحی در فضایی منحصر به فرد با مجوز رسمی از اداره
           میراث فرهنگی، صنایع دستی و گردشگری گیلان فعالیت دارد.
         </p>
-        <GradientAction href="#packages" className={styles.heroAction}>
+        <GradientAction href="#packages" variant="hero" className={styles.heroAction}>
           مهمان گیلمار شو
         </GradientAction>
       </div>
@@ -77,8 +78,8 @@ export default function HeroSection() {
             <Image
               src={`/gilmar/shared/avatar-0${avatar}.png`}
               alt=""
-              width={34}
-              height={34}
+              width={26}
+              height={26}
               key={avatar}
             />
           ))}

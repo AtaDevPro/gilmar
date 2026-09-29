@@ -1,7 +1,7 @@
 import Image from "next/image";
 
+import SectionIntro from "@/components/shared/section-intro";
 import styles from "./home.module.css";
-import { SectionIntro } from "./shared";
 
 const rules = [
   {
@@ -35,7 +35,15 @@ export default function RulesSection() {
           description="برای حفظ آرامش، نظم و تجربه‌ای دلنشین برای همه مهمانان، لطفاً قوانین اقامتگاه گیلمار را پیش از رزرو مطالعه و رعایت فرمایید."
           className={styles.rulesIntro}
         />
-        <div className={styles.rulesConnector} aria-hidden="true" />
+        <svg
+          className={styles.rulesConnector}
+          viewBox="0 0 837 134"
+          width="837"
+          height="134"
+          aria-hidden="true"
+        >
+          <path d="M1 70C91 70 132 95 214 67C284 43 298 12 374 35C450 58 475 123 563 105C651 87 706 40 836 50" />
+        </svg>
         <div className={styles.rulesGrid}>
           {rules.map((rule, index) => (
             <article className={styles.ruleItem} key={rule.title}>

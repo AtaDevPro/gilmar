@@ -1,9 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-abar-high: var(--font-abar-high-next);
-  --font-abar-mid: var(--font-abar-mid-next);
-  --font-abar-low: var(--font-abar-low-next);
+  --font-gilmar: var(--font-abar-mid);
+}
+
+:root {
+  --gilmar-bg: #f5f8fa;
+  --gilmar-surface: #fcfdfd;
+  --gilmar-ink: #1a1a1a;
+  --gilmar-muted: #4c4c4d;
+  --gilmar-line: #eef3f6;
+  --gilmar-mint: #b8f3c4;
+  --gilmar-green-soft: #ecfcef;
+  --gilmar-blue: #02adf7;
+  --gilmar-green: #26e05a;
+  --gilmar-radius: 24px;
+  --gilmar-container: 1280px;
+  --motion-fast: 160ms;
+  --motion-card: 240ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,
@@ -20,10 +35,9 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
   color: #1a1a1a;
   background: #f5f8fa;
-  font-family: var(--font-abar-mid-next), sans-serif;
+  font-family: var(--font-abar-mid), sans-serif;
 }
 
 a {
@@ -31,7 +45,7 @@ a {
   text-decoration: none;
 }
 
-:where(a, summary):focus-visible {
+:where(a, button, summary):focus-visible {
   outline: 3px solid #079cf1;
   outline-offset: 4px;
 }
@@ -44,4 +58,18 @@ summary {
 ::selection {
   color: #141416;
   background: #b8f3c4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }

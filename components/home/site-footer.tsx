@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./home.module.css";
 
@@ -9,12 +10,14 @@ export default function SiteFooter() {
     <footer className={styles.siteFooter} id="footer">
       <div className={styles.footerMain}>
         <div className={styles.footerBrand}>
-          <Image
-            src="/gilmar/shared/gilmar-logo-primary.svg"
-            alt="اقامتگاه بوم‌گردی گیلمار"
-            width={169}
-            height={53}
-          />
+          <Link href="/" aria-label="گیلمار، خانه">
+            <Image
+              src="/gilmar/shared/gilmar-logo-primary.svg"
+              alt="اقامتگاه بوم‌گردی گیلمار"
+              width={169}
+              height={53}
+            />
+          </Link>
           <p>
             اقامتگاه بوم‌گردی گیلمار، بزرگ‌ترین مجموعه اکولوژ شمال کشور با
             امکانات رفاهی و تفریحی متنوع، در فضایی منحصربه‌فرد و با مجوز رسمی
@@ -31,9 +34,11 @@ export default function SiteFooter() {
         <div className={styles.footerContact}>
           <h2>راه‌های ارتباط با گیلمار</h2>
           <p>
-            تلفن پشتیبانی: <bdi>01334775400 - 01334775411</bdi>
+            تلفن پشتیبانی: <a href="tel:+981334775400" dir="ltr">01334775400</a>
+            {" - "}
+            <a href="tel:+981334775411" dir="ltr">01334775411</a>
             <br />
-            ایمیل: <bdi>info@gilmar-gilan.com</bdi>
+            ایمیل: <a href="mailto:info@gilmar-gilan.com" dir="ltr">info@gilmar-gilan.com</a>
             <br />
             موقعیت گیلمار: گیلان، جاده رشت به فومن، روستای ملاسرا، خیابان
             کوزه‌گران، اقامتگاه گیلمار
@@ -50,7 +55,7 @@ export default function SiteFooter() {
       </div>
       <div className={styles.footerBar}>
         <p>© تمامی حقوق برای اقامتگاه بوم‌گردی گیلمار محفوظ است.</p>
-        <div className={styles.socials} aria-label="شبکه‌های اجتماعی گیلمار">
+        <div className={styles.socials} aria-hidden="true">
           {socials.map((social) => (
             <span key={social} aria-hidden="true">
               <Image

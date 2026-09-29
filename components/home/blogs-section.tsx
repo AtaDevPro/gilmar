@@ -1,7 +1,7 @@
 import Image from "next/image";
 
+import SectionIntro from "@/components/shared/section-intro";
 import styles from "./home.module.css";
-import { SectionIntro } from "./shared";
 
 const stories = [1, 2, 3] as const;
 
@@ -23,7 +23,7 @@ export default function BlogsSection() {
                 src="/gilmar/blogs/story-resort-building.png"
                 alt="نمای اقامتگاه گیلمار"
                 fill
-                sizes="408px"
+                sizes="(max-width: 767px) 84vw, 408px"
               />
               <div>
                 <h3>۱0 تجربه‌ای که نباید در طبیعت شمال از دست بدهید</h3>

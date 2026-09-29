@@ -1,7 +1,8 @@
 import Image from "next/image";
 
+import GradientAction from "@/components/shared/gradient-action";
+import SectionIntro from "@/components/shared/section-intro";
 import styles from "./home.module.css";
-import { GradientAction, SectionIntro } from "./shared";
 
 export default function AboutSection() {
   return (
@@ -22,7 +23,9 @@ export default function AboutSection() {
             دسترسی مناسب و انواع تفریحات و گشت‌های گیلان‌گردی، این اقامتگاه را
             به مقصدی متفاوت برای سفر تبدیل کرده است.
           </p>
-          <GradientAction href="#residence">اقامت در گیلمار</GradientAction>
+          <GradientAction href="#residence" className={styles.aboutAction}>
+            اقامت در گیلمار
+          </GradientAction>
         </div>
         <div className={styles.aboutCollage} aria-label="تصاویر اقامتگاه گیلمار">
           <div className={`${styles.aboutPhoto} ${styles.aboutPhotoMain}`}>
@@ -30,27 +33,26 @@ export default function AboutSection() {
               src="/gilmar/about/main-building.png"
               alt="نمای اصلی اقامتگاه گیلمار"
               fill
-              sizes="360px"
+              sizes="(max-width: 767px) calc(100vw - 32px), 352px"
             />
           </div>
           <div className={`${styles.aboutPhoto} ${styles.aboutPhotoOne}`}>
             <Image
-              src="/gilmar/about/exterior-01.png"
+              src="/gilmar/about/exterior-02.png"
               alt="نمای بیرونی خانه‌های چوبی گیلمار"
               fill
-              sizes="260px"
+              sizes="(max-width: 767px) calc(50vw - 24px), 256px"
             />
           </div>
           <div className={`${styles.aboutPhoto} ${styles.aboutPhotoTwo}`}>
             <Image
-              src="/gilmar/about/exterior-02.png"
+              src="/gilmar/about/exterior-01.png"
               alt="طبیعت پیرامون اقامتگاه گیلمار"
               fill
-              sizes="260px"
+              sizes="(max-width: 767px) calc(50vw - 24px), 256px"
             />
           </div>
           <div className={`${styles.aboutBadge} ${styles.aboutBadgeResort}`}>
-            <span>اقامتگاه بوم‌گردی گیلمار</span>
             <i aria-hidden="true">
               <Image
                 src="/gilmar/about/resort-eco-icon.svg"
@@ -59,9 +61,9 @@ export default function AboutSection() {
                 height={32}
               />
             </i>
+            <span>اقامتگاه بوم‌گردی گیلمار</span>
           </div>
           <div className={`${styles.aboutBadge} ${styles.aboutBadgeNorth}`}>
-            <span>تجربه اقامت اصیل شمال</span>
             <i aria-hidden="true">
               <Image
                 src="/gilmar/about/north-experience-icon.svg"
@@ -70,6 +72,7 @@ export default function AboutSection() {
                 height={28}
               />
             </i>
+            <span>تجربه اقامت اصیل شمال</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
+import SectionIntro from "@/components/shared/section-intro";
 import styles from "./home.module.css";
-import { SectionIntro } from "./shared";
 
 const questions = [1, 2, 3, 4, 5] as const;
 
@@ -26,7 +26,12 @@ export default function FaqSection() {
         </div>
         <div className={styles.faqList}>
           {questions.map((question, index) => (
-            <details className={styles.faqItem} open={index === 0} key={question}>
+            <details
+              className={styles.faqItem}
+              name="gilmar-faq"
+              open={index === 0}
+              key={question}
+            >
               <summary>امکان کنسلی یا تغییر تاریخ رزرو وجود دارد!</summary>
               <p>
                 در گیلمار امکان لغو یا تغییر تاریخ رزرو فراهم است، اما این موضوع

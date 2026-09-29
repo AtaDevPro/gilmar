@@ -1,7 +1,9 @@
 import Image from "next/image";
 
+import GradientAction from "@/components/shared/gradient-action";
+import SectionIntro from "@/components/shared/section-intro";
 import styles from "./home.module.css";
-import { GradientAction, SectionIntro } from "./shared";
+import PackageGallery from "./package-gallery";
 
 const features = [
   ["۱ شب اقامت", "/gilmar/packages/camping.png"],
@@ -29,31 +31,19 @@ export default function PackagesSection() {
           <div className={styles.packageFeatures}>
             {features.map(([label, image]) => (
               <div className={styles.packageFeature} key={label}>
-                <Image src={image} alt="" width={72} height={72} />
+                <Image src={image} alt="" width={100} height={100} />
                 <span>{label}</span>
               </div>
             ))}
           </div>
           <div className={styles.packageActions}>
             <strong>قیمت: ۲۳0۰۰۰۰ تومان</strong>
-            <GradientAction href="#footer">همین حالا رزرو کن</GradientAction>
+            <GradientAction href="#footer" className={styles.packageAction}>
+              همین حالا رزرو کن
+            </GradientAction>
           </div>
         </div>
-        <div className={styles.packageImage}>
-          <Image
-            src="/gilmar/rooms/autumn-cabin.png"
-            alt="خانه چوبی در پاییز، پکیج اقامت گیلمار"
-            fill
-            sizes="602px"
-          />
-          <p>تجربه‌ی اقامتی اصیل در دل طبیعت شمال</p>
-          <div className={styles.packageImagePager} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
+        <PackageGallery />
       </div>
     </section>
   );

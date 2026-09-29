@@ -6,7 +6,7 @@ const theme = createTheme({
   direction: "rtl",
 
   typography: {
-    fontFamily: "var(--font-abar-mid-next), sans-serif",
+    fontFamily: "var(--font-abar-mid), sans-serif",
   },
 
   palette: {

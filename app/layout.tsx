@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { abarHigh, abarLow, abarMid } from "./fonts";
+import { abarMid } from "./fonts";
 import Providers from "./providers";
 
 import "./globals.css";
@@ -20,9 +20,10 @@ export default function RootLayout({
     <html
       lang="fa"
       dir="rtl"
-      className={`${abarHigh.variable} ${abarMid.variable} ${abarLow.variable}`}
+      className={abarMid.variable}
+      data-scroll-behavior="smooth"
     >
-      <body className={abarMid.className}>
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>
