@@ -14,9 +14,9 @@ const features = [
 
 export default function PackagesSection() {
   return (
-    <section className={styles.packagesSection} id="packages" aria-labelledby="packages-title">
-      <div className={`${styles.container} ${styles.packagesLayout}`}>
-        <div className={styles.packagesCopy}>
+    <section className="relative h-auto xl:h-[815px]" id="packages" aria-labelledby="packages-title">
+      <div className="relative mx-auto grid h-full w-[min(1280px,calc(100%_-_32px))] grid-cols-1 gap-10 xl:grid-cols-[minmax(0,620px)_minmax(0,602px)] xl:gap-[58px]">
+        <div className={`${styles.packagesDecor} relative z-[2] flex flex-col xl:pt-[152px]`}>
           <SectionIntro
             id="packages-title"
             icon="/gilmar/shared/cube.svg"
@@ -24,21 +24,21 @@ export default function PackagesSection() {
             description="پکیج‌های ویژه ما ترکیبی از اقامت آرام، غذاهای محلی و تفریحات هیجان‌انگیز در دل طبیعت است."
             align="start"
           />
-          <div className={styles.packageDescription}>
-            <h3>پکیج رمانتیک دو نفره</h3>
-            <p>شامل: ۱ شب اقامت + صبحانه + تور جنگل‌نوردی + قایق‌سواری</p>
+          <div className="mt-7 border-t border-dashed border-[#cbd5da] pt-6">
+            <h3 className="m-0 text-base leading-8 font-extrabold">پکیج رمانتیک دو نفره</h3>
+            <p className="m-0 text-sm leading-8 font-semibold text-[#4c4c4d]">شامل: ۱ شب اقامت + صبحانه + تور جنگل‌نوردی + قایق‌سواری</p>
           </div>
-          <div className={styles.packageFeatures}>
+          <div className="mt-[22px] grid grid-cols-2 justify-between gap-4 sm:grid-cols-4 sm:gap-[22px]">
             {features.map(([label, image]) => (
-              <div className={styles.packageFeature} key={label}>
-                <Image src={image} alt="" width={100} height={100} />
-                <span>{label}</span>
+              <div className="flex h-[116px] min-w-0 flex-col items-center justify-center gap-0.5 rounded-2xl border-[6px] border-white bg-[#fcfdfd] px-1 shadow-[0_24px_32px_rgb(0_46_37_/_16%)]" key={label}>
+                <Image className="h-[74px] w-[74px] object-contain" src={image} alt="" width={100} height={100} />
+                <span className="text-center text-sm leading-7 font-semibold whitespace-nowrap">{label}</span>
               </div>
             ))}
           </div>
-          <div className={styles.packageActions}>
-            <strong>قیمت: ۲۳0۰۰۰۰ تومان</strong>
-            <GradientAction href="#footer" className={styles.packageAction}>
+          <div className="mt-[30px] flex flex-wrap items-center justify-between gap-5">
+            <strong className="text-base font-extrabold text-[#58c27d]">قیمت: ۲٬۳۰۰٬۰۰۰ تومان</strong>
+            <GradientAction href="#footer" className="w-[178px]">
               همین حالا رزرو کن
             </GradientAction>
           </div>

@@ -34,7 +34,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
   color: #1a1a1a;
   background: #f5f8fa;
   font-family: var(--font-abar-mid), sans-serif;

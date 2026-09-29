@@ -4,6 +4,7 @@ import { abarMid } from "./fonts";
 import Providers from "./providers";
 
 import "./globals.css";
+import "swiper/css";
 
 export const metadata: Metadata = {
   title: "اقامتگاه بوم‌گردی گیلمار",

@@ -4,9 +4,9 @@ import ServicesCarousel from "./services-carousel";
 
 export default function ServicesSection() {
   return (
-    <section className={styles.servicesSection} id="services" aria-labelledby="services-title">
-      <div className={`${styles.container} ${styles.servicesLayout}`}>
-        <div className={styles.servicesCopy}>
+    <section className="relative h-auto overflow-hidden xl:h-[346px]" id="services" aria-labelledby="services-title">
+      <div className="relative mx-auto grid h-full w-[min(1280px,calc(100%_-_32px))] grid-cols-1 gap-10 xl:grid-cols-2 xl:gap-10">
+        <div className={`${styles.gridGlow} relative z-[2] flex items-center pb-2 xl:pb-0`}>
           <SectionIntro
             id="services-title"
             icon="/gilmar/shared/star.svg"
