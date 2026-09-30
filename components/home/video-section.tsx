@@ -11,7 +11,10 @@ export default function VideoSection() {
       id="video"
       aria-labelledby="video-title"
     >
-      <div className={`${styles.videoDecor} absolute inset-y-0 right-0 w-full xl:w-[660px]`} aria-hidden="true" />
+      <div
+        className={`${styles.videoDecor} absolute inset-y-0 right-0 w-full xl:w-[660px]`}
+        aria-hidden="true"
+      />
       <div className="relative z-[3] order-1 flex w-full flex-col items-start gap-5 px-2 xl:absolute xl:top-[216px] xl:right-20 xl:w-[500px] xl:p-0">
         <SectionIntro
           id="video-title"
@@ -25,7 +28,10 @@ export default function VideoSection() {
         </GradientAction>
       </div>
       <div className="relative order-2 aspect-[914/690] w-full overflow-visible xl:absolute xl:inset-y-0 xl:left-0 xl:h-[690px] xl:w-[914px]">
-        <div className={`${styles.videoMask} absolute inset-0 overflow-hidden`} aria-hidden="true">
+        <div
+          className={`${styles.videoMask} absolute inset-0 overflow-hidden`}
+          aria-hidden="true"
+        >
           <Image
             className="object-cover"
             src="/gilmar/video/forest.jpg"
@@ -35,12 +41,14 @@ export default function VideoSection() {
           />
         </div>
         <div
-          className="absolute top-[50.1%] left-[28.1%] z-[3] grid -translate-x-1/2 -translate-y-1/2 place-items-center"
+          className="absolute top-1/2 left-[33.3%] z-[3] grid -translate-x-1/2 -translate-y-1/2 place-items-center"
           aria-hidden="true"
         >
-          <span className={`${styles.playRing} grid h-[clamp(76px,24vw,120px)] w-[clamp(76px,24vw,120px)] place-items-center rounded-full bg-white/35 backdrop-blur-sm`}>
-            <span className="grid h-[65.104%] w-[65.104%] place-items-center rounded-full bg-white">
-              <i className="ms-1.5 block h-0 w-0 border-y-[13px] border-y-transparent border-l-[23px] border-l-[#13bda1] max-md:border-y-[10px] max-md:border-l-[18px]" />
+          <span
+            className={`${styles.playRing} grid h-[72px] w-[72px] place-items-center rounded-full bg-white/35 backdrop-blur-sm sm:h-[84px] sm:w-[84px] md:h-[96px] md:w-[96px] xl:h-[120px] xl:w-[120px]`}
+          >
+            <span className="grid h-[65%] w-[65%] place-items-center rounded-full bg-white">
+              <i className="block h-[18px] w-[16px] translate-x-[1px] bg-[#13bda1] [clip-path:polygon(0_0,100%_50%,0_100%)] sm:h-5 sm:w-[18px] md:h-[22px] md:w-5 xl:h-[26px] xl:w-[23px]" />
             </span>
           </span>
         </div>

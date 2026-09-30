@@ -17,11 +17,15 @@ export default function PackageGallery() {
 
   return (
     <div className="relative mx-auto aspect-[602/815] w-full max-w-[602px] xl:h-[815px] xl:w-[602px]">
-      <div className={`${styles.packageMask} absolute inset-0 overflow-hidden drop-shadow-[0_24px_32px_rgb(0_46_37_/_18%)]`}>
+      <div
+        className={`${styles.packageMask} absolute inset-0 overflow-hidden drop-shadow-[0_24px_32px_rgb(0_46_37_/_18%)]`}
+      >
         {images.map(([src, alt], index) => (
           <Image
             className={`object-cover transition-[opacity,scale] duration-[var(--motion-card)] ease-[var(--motion-ease)] ${
-              index === activeIndex ? "scale-100 opacity-100" : "scale-[1.03] opacity-0"
+              index === activeIndex
+                ? "scale-100 opacity-100"
+                : "scale-[1.03] opacity-0"
             }`}
             src={src}
             alt={index === activeIndex ? alt : ""}
@@ -30,13 +34,16 @@ export default function PackageGallery() {
             key={src}
           />
         ))}
-        <span className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/50" aria-hidden="true" />
+        <span
+          className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/50"
+          aria-hidden="true"
+        />
       </div>
-      <p className="absolute top-[9.5%] right-0 z-[2] m-0 w-[min(228px,58%)] rounded-bl-[20px] bg-white px-5 py-4 text-center text-xs leading-7 font-semibold text-[#1a1a1a] md:px-6 md:py-[22px] md:text-sm md:leading-8">
+      <p className="absolute top-[11%] left-0 z-[2] m-0 grid h-[10%] w-[23.1%] place-items-center px-1 text-center text-[9px] leading-[18px] font-semibold text-[#1a1a1a] sm:text-[10px] sm:leading-5 md:text-xs md:leading-6 xl:text-sm xl:leading-7">
         تجربه‌ی اقامتی اصیل در دل طبیعت شمال
       </p>
       <div
-        className="absolute bottom-[18px] left-1/2 z-[2] flex -translate-x-1/2 gap-1 rounded-full bg-black/15 px-2 backdrop-blur-[2px]"
+        className="absolute bottom-[18px] left-[8%] z-[2] flex gap-3"
         dir="ltr"
         role="group"
         aria-label="تصاویر پکیج اقامت"
@@ -51,7 +58,9 @@ export default function PackageGallery() {
             onClick={() => setActiveIndex(index)}
             key={alt}
           >
-            <span className={`h-1 w-7 rounded-full transition-colors duration-[var(--motion-fast)] ${index === activeIndex ? "bg-white" : "bg-white/55 group-hover:bg-white/80"}`} />
+            <span
+              className={`h-1 w-7 rounded-full transition-colors duration-[var(--motion-fast)] ${index === activeIndex ? "bg-white" : "bg-white/55 group-hover:bg-white/80"}`}
+            />
           </button>
         ))}
       </div>

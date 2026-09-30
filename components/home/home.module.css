@@ -1,7 +1,11 @@
 .heroSection {
   background:
     radial-gradient(circle at 50% 26%, rgb(255 255 255 / 72%), transparent 32%),
-    radial-gradient(ellipse at 52% 61%, rgb(122 112 100 / 32%), transparent 30%),
+    radial-gradient(
+      ellipse at 52% 61%,
+      rgb(122 112 100 / 32%),
+      transparent 30%
+    ),
     linear-gradient(180deg, #c6d9ff 0%, #d9e7ff 62%, #f5f8fa 100%);
 }
 
@@ -9,27 +13,37 @@
   position: absolute;
   inset: 0;
   opacity: 0.72;
-  background: url("/gilmar/hero/hero-grain-background.png") center 76px / min(1171px, 92vw) auto no-repeat;
+  background: url("/gilmar/hero/hero-grain-background.png") center 76px /
+    min(1171px, 92vw) auto no-repeat;
   mix-blend-mode: soft-light;
   pointer-events: none;
 }
 
 .heroHalo {
   z-index: -1;
-  opacity: 0.78;
-  background: radial-gradient(ellipse at 50% 68%, rgb(62 67 58 / 52%) 0 18%, rgb(131 118 100 / 34%) 34%, transparent 69%);
-  filter: blur(38px);
-  scale: 1.05 0.92;
+  opacity: 1;
+
+  background: radial-gradient(
+    ellipse at 50% 66%,
+    rgb(25 32 27 / 58%) 0%,
+    rgb(50 52 43 / 42%) 30%,
+    rgb(91 82 67 / 24%) 50%,
+    transparent 72%
+  );
+
+  filter: blur(clamp(28px, 4vw, 52px));
+  scale: 1.1 1;
 }
 
 .heroMedia {
   filter: drop-shadow(0 28px 26px rgb(0 46 37 / 22%));
   mask-image:
-    linear-gradient(#000, #000),
-    url("/gilmar/hero/hero-resort-mask.svg");
+    linear-gradient(#000, #000), url("/gilmar/hero/hero-resort-mask.svg");
   mask-repeat: no-repeat;
   mask-position: top, bottom;
-  mask-size: 100% 35.284%, 100% 64.716%;
+  mask-size:
+    100% 35.284%,
+    100% 64.716%;
 }
 
 .heroMedia img {
@@ -69,13 +83,15 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url("/gilmar/shared/floating-confetti-dots.svg") center / 87% 92% no-repeat;
+  background: url("/gilmar/shared/floating-confetti-dots.svg") center / 87% 92%
+    no-repeat;
   pointer-events: none;
 }
 
 .rulesDecor {
   opacity: 0.5;
-  background: url("/gilmar/shared/floating-confetti-dots.svg") center / min(1080px, 90vw) 82% no-repeat;
+  background: url("/gilmar/shared/floating-confetti-dots.svg") center /
+    min(1080px, 90vw) 82% no-repeat;
   pointer-events: none;
 }
 
@@ -165,14 +181,41 @@
   object-fit: cover;
 }
 
-.markerOne { top: 21.026%; left: 45.723%; width: 8.554%; }
-.markerTwo { top: 33.775%; left: 75.706%; }
-.markerThree { top: 72.848%; left: 80.667%; }
-.markerFour { top: 79.967%; left: 19.761%; }
-.markerFive { top: 21.192%; left: 16.253%; }
-.markerSix { top: 57.616%; left: 8.383%; }
-.markerSeven { top: 47.682%; left: 87.767%; width: 4.277%; }
-.markerEight { top: 44.536%; left: 18.648%; width: 4.277%; }
+.markerOne {
+  top: 21.026%;
+  left: 45.723%;
+  width: 8.554%;
+}
+.markerTwo {
+  top: 33.775%;
+  left: 75.706%;
+}
+.markerThree {
+  top: 72.848%;
+  left: 80.667%;
+}
+.markerFour {
+  top: 79.967%;
+  left: 19.761%;
+}
+.markerFive {
+  top: 21.192%;
+  left: 16.253%;
+}
+.markerSix {
+  top: 57.616%;
+  left: 8.383%;
+}
+.markerSeven {
+  top: 47.682%;
+  left: 87.767%;
+  width: 4.277%;
+}
+.markerEight {
+  top: 44.536%;
+  left: 18.648%;
+  width: 4.277%;
+}
 
 .packagesDecor::before,
 .faqDecor::after {
@@ -259,7 +302,11 @@
 }
 
 .footerGlow {
-  background: radial-gradient(760px 520px at 100% 100%, rgb(153 189 255 / 58%), transparent 68%);
+  background: radial-gradient(
+    760px 520px at 100% 100%,
+    rgb(153 189 255 / 58%),
+    transparent 68%
+  );
 }
 
 .footerMap {

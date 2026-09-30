@@ -26,7 +26,7 @@ export default function SectionIntro({
       } ${className}`}
     >
       <span
-        className="relative grid h-[52px] w-[84px] shrink-0 place-items-center"
+        className="relative grid h-[52px] w-[84px] shrink-0 place-items-center rounded-full bg-[#ECFCEF]"
         aria-hidden="true"
       >
         <Image
@@ -37,7 +37,13 @@ export default function SectionIntro({
           height={60}
         />
         <span className="relative block h-6 w-6">
-          <Image className="object-contain" src={icon} alt="" fill sizes="24px" />
+          <Image
+            className="object-contain"
+            src={icon}
+            alt=""
+            fill
+            sizes="24px"
+          />
         </span>
       </span>
       <div className="flex max-w-[732px] flex-col gap-4">
