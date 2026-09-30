@@ -1,5 +1,6 @@
 "use client";
 
+import ButtonBase from "@mui/material/ButtonBase";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -49,9 +50,9 @@ export default function PackageGallery() {
         aria-label="تصاویر پکیج اقامت"
       >
         {images.map(([, alt], index) => (
-          <button
+          <ButtonBase
             type="button"
-            className="group grid h-11 w-10 cursor-pointer place-items-center border-0 bg-transparent p-0"
+            className="group !grid h-11 w-10 !place-items-center !p-0"
             aria-label={`نمایش ${alt}`}
             aria-pressed={index === activeIndex}
             aria-current={index === activeIndex ? "true" : undefined}
@@ -61,7 +62,7 @@ export default function PackageGallery() {
             <span
               className={`h-1 w-7 rounded-full transition-colors duration-[var(--motion-fast)] ${index === activeIndex ? "bg-white" : "bg-white/55 group-hover:bg-white/80"}`}
             />
-          </button>
+          </ButtonBase>
         ))}
       </div>
     </div>

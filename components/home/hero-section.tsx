@@ -4,7 +4,6 @@ import Link from "next/link";
 import GradientAction from "@/components/shared/gradient-action";
 import styles from "./home.module.css";
 import MobileNavigation from "./mobile-navigation";
-import { navItems } from "./navigation";
 
 const avatars = [3, 2, 1] as const;
 

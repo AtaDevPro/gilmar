@@ -30,6 +30,14 @@ const theme = createTheme({
   shape: {
     borderRadius: 20,
   },
+
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
 });
 
 export default theme;

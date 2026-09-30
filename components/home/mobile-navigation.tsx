@@ -2,6 +2,10 @@
 
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -63,11 +67,9 @@ export default function MobileNavigation() {
           </Link>
 
           <IconButton
-            aria-controls={open ? "mobile-navigation" : undefined}
-            aria-expanded={open}
-            aria-label="باز کردن فهرست ناوبری"
+            aria-label="بستن فهرست ناوبری"
             className="!grid !h-11 !w-11 !shrink-0 !place-items-center !rounded-full !border !border-[#edf1f3] !bg-white/80 !text-[#1a1a1a] !shadow-[0_4px_12px_rgb(15_15_15_/_6%)]"
-            onClick={() => setOpen(true)}
+            onClick={closeNavigation}
           >
             <span className="grid w-[18px] gap-[5px]" aria-hidden="true">
               <i className="block h-[2px] rounded-full bg-current" />
@@ -78,17 +80,21 @@ export default function MobileNavigation() {
         </div>
 
         {/* Navigation */}
-        <nav className="mt-5 flex flex-col gap-1.5" aria-label="ناوبری موبایل">
-          {navItems.map(([label, href]) => (
-            <a
-              className="flex min-h-12 items-center rounded-2xl px-4 text-sm font-bold text-[#353945] transition-[background-color,color,translate] duration-[var(--motion-fast)] hover:translate-x-[-2px] hover:bg-white hover:text-[var(--gilmar-blue)] focus-visible:bg-white focus-visible:text-[var(--gilmar-blue)]"
-              href={href}
-              onClick={closeNavigation}
-              key={href}
-            >
-              {label}
-            </a>
-          ))}
+        <nav aria-label="ناوبری موبایل">
+          <List className="!mt-5 !flex !flex-col !gap-1.5 !p-0" disablePadding>
+            {navItems.map(([label, href]) => (
+              <ListItem className="!p-0" disablePadding key={href}>
+                <ListItemButton
+                  className="!min-h-12 !rounded-2xl !px-4 !py-0 !text-sm !font-bold !text-[#353945] !transition-[background-color,color,translate] !duration-[var(--motion-fast)] hover:!translate-x-[-2px] hover:!bg-white hover:!text-[var(--gilmar-blue)] focus-visible:!bg-white focus-visible:!text-[var(--gilmar-blue)]"
+                  component={Link}
+                  href={href}
+                  onClick={closeNavigation}
+                >
+                  <ListItemText className="!m-0" disableTypography primary={label} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
         </nav>
 
         {/* Authentication CTA */}
