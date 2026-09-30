@@ -100,7 +100,7 @@ export default function SiteFooter() {
           />
         </div>
       </div>
-      <div className="relative mx-auto mt-3 flex min-h-14 w-[min(1280px,calc(100%_-_32px))] flex-col items-center justify-center gap-2 rounded-[28px] border border-[#eef3f6] bg-white/85 px-6 py-3 text-center md:h-12 md:min-h-0 md:flex-row md:justify-between md:rounded-full md:px-5 md:py-1.5 md:text-start">
+      <div className="relative mx-auto mt-3 flex min-h-14 w-[min(1280px,calc(100%_-_32px))] flex-col items-center justify-center gap-2 rounded-[28px] border-4 border-white bg-[#F5F7FA]/95 px-6 py-3 text-center shadow-[0_12px_30px_rgb(15_15_15_/_5%)] backdrop-blur-xl md:h-12 md:min-h-0 md:flex-row md:justify-between md:rounded-full md:border-[6px] md:px-5 md:py-1.5 md:text-start">
         <p className="m-0 text-sm leading-8 font-semibold text-[#4c4c4d] md:text-xs md:leading-6">
           © تمامی حقوق برای اقامتگاه بوم‌گردی گیلمار محفوظ است.
         </p>

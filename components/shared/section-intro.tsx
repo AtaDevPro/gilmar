@@ -26,16 +26,19 @@ export default function SectionIntro({
       } ${className}`}
     >
       <span
-        className="relative grid h-[52px] w-[84px] shrink-0 place-items-center rounded-full bg-[#ECFCEF]"
+        className="relative grid h-[60px] w-[92px] shrink-0 place-items-center rounded-full bg-white shadow-[0_6px_18px_rgb(0_46_37_/_8%)]"
         aria-hidden="true"
       >
+        <span className="absolute h-[52px] w-[84px] rounded-full bg-[#ECFCEF]" />
+
         <Image
-          className="absolute -inset-1 h-[60px] w-[92px] max-w-none"
+          className="absolute inset-0 h-[60px] w-[92px] max-w-none"
           src="/gilmar/shared/section-icon-frame.svg"
           alt=""
           width={92}
           height={60}
         />
+
         <span className="relative block h-6 w-6">
           <Image
             className="object-contain"

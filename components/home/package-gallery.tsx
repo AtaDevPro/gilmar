@@ -1,6 +1,5 @@
 "use client";
 
-import ButtonBase from "@mui/material/ButtonBase";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -18,6 +17,7 @@ export default function PackageGallery() {
 
   return (
     <div className="relative mx-auto aspect-[602/815] w-full max-w-[602px] xl:h-[815px] xl:w-[602px]">
+      {/* Gallery image */}
       <div
         className={`${styles.packageMask} absolute inset-0 overflow-hidden drop-shadow-[0_24px_32px_rgb(0_46_37_/_18%)]`}
       >
@@ -35,35 +35,48 @@ export default function PackageGallery() {
             key={src}
           />
         ))}
+
         <span
           className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/50"
           aria-hidden="true"
         />
       </div>
+
+      {/* Text inside the mask cutout */}
       <p className="absolute top-[11%] left-0 z-[2] m-0 grid h-[10%] w-[23.1%] place-items-center px-1 text-center text-[9px] leading-[18px] font-semibold text-[#1a1a1a] sm:text-[10px] sm:leading-5 md:text-xs md:leading-6 xl:text-sm xl:leading-7">
         تجربه‌ی اقامتی اصیل در دل طبیعت شمال
       </p>
+
+      {/* Gallery pagination */}
       <div
-        className="absolute bottom-[18px] left-[8%] z-[2] flex gap-3"
+        className="absolute bottom-[2.6%] left-[2%] z-[3] flex w-[56%] items-center gap-[4%]"
         dir="ltr"
         role="group"
         aria-label="تصاویر پکیج اقامت"
       >
-        {images.map(([, alt], index) => (
-          <ButtonBase
-            type="button"
-            className="group !grid h-11 w-10 !place-items-center !p-0"
-            aria-label={`نمایش ${alt}`}
-            aria-pressed={index === activeIndex}
-            aria-current={index === activeIndex ? "true" : undefined}
-            onClick={() => setActiveIndex(index)}
-            key={alt}
-          >
-            <span
-              className={`h-1 w-7 rounded-full transition-colors duration-[var(--motion-fast)] ${index === activeIndex ? "bg-white" : "bg-white/55 group-hover:bg-white/80"}`}
-            />
-          </ButtonBase>
-        ))}
+        {images.map(([, alt], index) => {
+          const isActive = index === activeIndex;
+
+          return (
+            <button
+              type="button"
+              className="group flex h-8 min-w-0 flex-1 cursor-pointer items-center justify-center border-0 bg-transparent p-0"
+              aria-label={`نمایش ${alt}`}
+              aria-pressed={isActive}
+              aria-current={isActive ? "true" : undefined}
+              onClick={() => setActiveIndex(index)}
+              key={alt}
+            >
+              <span
+                className={`block h-[3px] w-full rounded-full transition-[background-color,opacity] duration-[var(--motion-fast)] sm:h-1 xl:h-[5px] ${
+                  isActive
+                    ? "bg-white opacity-100"
+                    : "bg-white opacity-50 group-hover:opacity-75"
+                }`}
+              />
+            </button>
+          );
+        })}
       </div>
     </div>
   );

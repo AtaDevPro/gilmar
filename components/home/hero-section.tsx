@@ -34,7 +34,7 @@ function SiteHeader() {
       </div>
 
       {/* Desktop Header */}
-      <div className="absolute top-10 left-1/2 hidden h-[66px] w-[min(1280px,calc(100%_-_32px))] -translate-x-1/2 items-center justify-between rounded-full border-[6px] border-white/70 bg-white/90 py-px pe-4 ps-2 shadow-[0_40px_64px_-32px_rgb(15_15_15_/_10%)] backdrop-blur-2xl xl:flex">
+      <div className="absolute top-10 left-1/2 hidden h-[66px] w-[min(1280px,calc(100%_-_32px))] -translate-x-1/2 items-center justify-between rounded-full border-[6px] border-white bg-[#F7F9FB]/95 py-px pe-4 ps-2 shadow-[0_40px_64px_-32px_rgb(15_15_15_/_10%)] backdrop-blur-2xl xl:flex">
         <Link
           className="flex shrink-0 items-center transition-[opacity,scale] duration-[var(--motion-fast)] ease-[var(--motion-ease)] hover:scale-[1.01] hover:opacity-85"
           href="/"

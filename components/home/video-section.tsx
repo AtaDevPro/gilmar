@@ -39,6 +39,8 @@ export default function VideoSection() {
             fill
             sizes="(min-width: 1280px) 914px, calc(100vw - 32px)"
           />
+
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         <div
           className="absolute top-1/2 left-[33.3%] z-[3] grid -translate-x-1/2 -translate-y-1/2 place-items-center"
