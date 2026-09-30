@@ -78,21 +78,33 @@ export default function ServicesCarousel() {
         </Swiper>
       </div>
       <IconButton
-        className="!absolute top-1/2 right-2 z-20 !grid !h-12 !w-12 -translate-y-1/2 !place-items-center !rounded-full !bg-white !p-1 !text-inherit shadow-[0_8px_20px_rgb(0_46_37_/_14%)] transition-[translate,scale] duration-[var(--motion-fast)] hover:-translate-y-1/2 hover:scale-[1.04] sm:right-1 md:right-[-18px] md:!h-16 md:!w-16 md:!p-[5px] xl:right-[-32px]"
+        className="!absolute top-1/2 right-2 z-20 !grid !h-10 !w-10 -translate-y-1/2 !place-items-center !rounded-full !bg-white !p-1 !text-inherit shadow-[0_8px_20px_rgb(0_46_37_/_14%)] transition-[translate,scale] duration-[var(--motion-fast)] hover:-translate-y-1/2 hover:scale-[1.04] sm:right-1 md:right-[-18px] md:!h-14 md:!w-14 md:!p-[5px] xl:right-[-32px]"
         aria-label="نمایش خدمت بعدی"
         onClick={() => swiperRef.current?.slideNext()}
       >
-        <span className="grid h-full w-full place-items-center rounded-full bg-[linear-gradient(135deg,#04B9E2_0%,#08CDB1_48%,#18DF83_100%)]">
-          <Image src="/gilmar/shared/arrow-right.svg" alt="" width={31} height={31} />
+        <span className="grid aspect-square h-full shrink-0 place-items-center overflow-hidden rounded-full bg-[linear-gradient(135deg,#04B9E2_0%,#08CDB1_48%,#18DF83_100%)]">
+          <Image
+            className=" translate-y-[3px]"
+            src="/gilmar/shared/arrow-right.svg"
+            alt=""
+            width={40}
+            height={40}
+          />
         </span>
       </IconButton>
       <IconButton
-        className="!absolute top-1/2 left-2 z-20 !grid !h-12 !w-12 -translate-y-1/2 !place-items-center !rounded-full !bg-white !p-1 !text-inherit shadow-[0_8px_20px_rgb(0_46_37_/_14%)] transition-[translate,scale] duration-[var(--motion-fast)] hover:-translate-y-1/2 hover:scale-[1.04] md:hidden"
+        className="!absolute top-1/2 left-2 z-20 !grid !h-10 !w-10 -translate-y-1/2 !place-items-center !rounded-full !bg-white !p-1 !text-inherit shadow-[0_8px_20px_rgb(0_46_37_/_14%)] transition-[translate,scale] duration-[var(--motion-fast)] hover:-translate-y-1/2 hover:scale-[1.04] md:hidden"
         aria-label="نمایش خدمت قبلی"
         onClick={() => swiperRef.current?.slidePrev()}
       >
-        <span className="grid h-full w-full place-items-center rounded-full bg-[linear-gradient(135deg,#04B9E2_0%,#08CDB1_48%,#18DF83_100%)]">
-          <Image className="rotate-180" src="/gilmar/shared/arrow-right.svg" alt="" width={31} height={31} />
+        <span className="grid aspect-square h-full shrink-0 place-items-center overflow-hidden rounded-full bg-[linear-gradient(135deg,#04B9E2_0%,#08CDB1_48%,#18DF83_100%)]">
+          <Image
+            className="-translate-y-[2px] rotate-180"
+            src="/gilmar/shared/arrow-right.svg"
+            alt=""
+            width={40}
+            height={40}
+          />
         </span>
       </IconButton>
     </div>

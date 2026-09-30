@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { navItems } from "./navigation";
 import GradientAction from "@/components/shared/gradient-action";
 import styles from "./home.module.css";
 import MobileNavigation from "./mobile-navigation";
@@ -35,7 +35,48 @@ function SiteHeader() {
 
       {/* Desktop Header */}
       <div className="absolute top-10 left-1/2 hidden h-[66px] w-[min(1280px,calc(100%_-_32px))] -translate-x-1/2 items-center justify-between rounded-full border-[6px] border-white/70 bg-white/90 py-px pe-4 ps-2 shadow-[0_40px_64px_-32px_rgb(15_15_15_/_10%)] backdrop-blur-2xl xl:flex">
-        {/* desktop content همان کد فعلی */}
+        <Link
+          className="flex shrink-0 items-center transition-[opacity,scale] duration-[var(--motion-fast)] ease-[var(--motion-ease)] hover:scale-[1.01] hover:opacity-85"
+          href="/"
+          aria-label="گیلمار، خانه"
+        >
+          <Image
+            className="h-auto w-[169px]"
+            src="/gilmar/shared/gilmar-logo-primary.svg"
+            alt="اقامتگاه بوم‌گردی گیلمار"
+            width={169}
+            height={53}
+          />
+        </Link>
+
+        <nav
+          className="flex items-center justify-center gap-10 text-sm leading-8 font-semibold whitespace-nowrap"
+          aria-label="ناوبری اصلی"
+        >
+          {navItems.map(([label, href]) => (
+            <a
+              className="transition-colors duration-[var(--motion-fast)] hover:text-[var(--gilmar-blue)] focus-visible:text-[var(--gilmar-blue)]"
+              href={href}
+              key={href}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        <Link
+          className="flex h-[52px] min-w-[154px] items-center justify-center gap-2.5 rounded-full bg-[radial-gradient(circle_at_68%_0%,rgb(255_255_255_/_24%),transparent_45%),linear-gradient(115deg,#02adf7,#26e05a)] text-sm leading-8 font-extrabold text-white transition-[translate,box-shadow] duration-[var(--motion-fast)] hover:-translate-y-px hover:shadow-[0_10px_22px_rgb(2_173_247_/_20%)]"
+          href="/auth"
+        >
+          <span className={styles.userIcon} aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="9" r="2.5" />
+              <path d="M7.8 17c.7-2.2 2.2-3.3 4.2-3.3s3.5 1.1 4.2 3.3" />
+            </svg>
+          </span>
+          ورود یا ثبت‌نام
+        </Link>
       </div>
     </header>
   );
